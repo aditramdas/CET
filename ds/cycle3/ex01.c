@@ -60,12 +60,18 @@ void InsertatBeg(node* h){
 	insert->data = n;
 }
 void InsertatEnd(node* h){
-	// node insertE = *(getNode());
-	// node* p = h.link;
-	// while(p != NULL){
-	// 	p = ((*p).link);
+	node* insertE = getNode();
+	node* p = h;
+	while(p->link != NULL){
+		p = p->link;
+	}
+	p->link = insertE;
+	int n;
+	printf("Enter number to be inserted: ");
+	scanf("%d" , &n);
+	insertE->data = n;
+	insertE->link = NULL;
 
-	// }
 }
 void InsertatPos(node* h){
 
@@ -80,14 +86,14 @@ void DeleteFromEnd(node* h){
 
 }
 void display(node* h){
-	node* p;
-	node* k = h->link;
-	p = (*k).link;
-	while(p != NULL){
-		printf("%d\t", p->data);
-		node* j = p->link;
-		p = (*j).link;
+	node* k = getNode();
+	k = h;
+	k = k->link;
+	while(k->link != NULL){
+		printf("%d\t", k->data);
+		k = k->link;
 	}
+	printf("%d", k->data);
 	printf("\n\n");
 
 }
